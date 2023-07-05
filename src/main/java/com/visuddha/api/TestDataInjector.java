@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +12,6 @@ import com.visuddha.api.models.Purchase;
 import com.visuddha.api.models.UserEntity;
 import com.visuddha.api.repository.PurchaseRepository;
 import com.visuddha.api.repository.UserRepository;
-
-import lombok.AllArgsConstructor;
 
 @Component
 public class TestDataInjector implements CommandLineRunner {
@@ -38,29 +35,21 @@ public class TestDataInjector implements CommandLineRunner {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		// adding purchases
-		Purchase demoPurchase = Purchase.builder().id(1)
-				.purchase_item("demoitem01")
-				.purchase_amount(190)
-				.purchase_date((Date) dateFormat.parse("2023-01-22"))
-				.points(90)
-				.user(demouser)
-				.build();
-		purchaseRepository.save(demoPurchase);
+		Purchase demoPurchase01 = Purchase.builder().purchase_item("demoitem01").purchase_amount(190)
+				.purchase_date((Date) dateFormat.parse("2023-01-22")).points(90).user(demouser).build();
+		purchaseRepository.save(demoPurchase01);
 
-		demoPurchase.setPurchase_date((Date) dateFormat.parse("2023-02-22"));
-		purchaseRepository.save(demoPurchase);
+		Purchase demoPurchase02 = Purchase.builder().purchase_item("demoitem02").purchase_amount(190)
+				.purchase_date((Date) dateFormat.parse("2023-02-22")).points(90).user(demouser).build();
+		purchaseRepository.save(demoPurchase02);
 
-		demoPurchase.setPurchase_date((Date) dateFormat.parse("2023-03-22"));
-		purchaseRepository.save(demoPurchase);
+		Purchase demoPurchase03 = Purchase.builder().purchase_item("demoitem03").purchase_amount(190)
+				.purchase_date((Date) dateFormat.parse("2023-03-22")).points(90).user(demouser).build();
+		purchaseRepository.save(demoPurchase03);
 
-		demoPurchase.setPurchase_date((Date) dateFormat.parse("2023-04-22"));
-		purchaseRepository.save(demoPurchase);
-
-		demoPurchase.setPurchase_date((Date) dateFormat.parse("2023-05-22"));
-		purchaseRepository.save(demoPurchase);
-		
-		demoPurchase.setPurchase_date((Date) dateFormat.parse("2023-06-22"));
-		purchaseRepository.save(demoPurchase);
+		Purchase demoPurchase04 = Purchase.builder().purchase_item("demoitem04").purchase_amount(190)
+				.purchase_date((Date) dateFormat.parse("2023-04-22")).points(90).user(demouser).build();
+		purchaseRepository.save(demoPurchase04);
 
 	}
 
