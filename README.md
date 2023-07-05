@@ -5,12 +5,27 @@
 
 ### To Run the Unit Tests
 >```mvn test ```
-   
+
+## Testing the API 
+
+Test data for user and purchases has been injected into the project's embedded database for testing and demonstration purposes. Please utilize the following information to evaluate the implementation. Additionally, the user registration functionality is also available.
+
+### Test User Information
+#### Login credentials
+```
+username = demouser
+password = demouser
+```
+#### Test User ID
+```
+user_id = 1
+```
+
 ## End Points
 
 ## Registering an User
 
-Registers a new user.
+Registers a new user to the system.
 
 >**Endpoint:** `POST /api/auth/register`
 
@@ -38,7 +53,7 @@ Content-Type: application/json
 
 ```
 
-#### Example Request
+#### Example Curl Request
 ```
 curl --location --request POST 'http://localhost:8080/api/auth/register' \
 --header 'Content-Type: application/json' \
@@ -82,7 +97,7 @@ Content-Type: application/json
 }
 ```
 
-### Example Request
+### Example Curl Request
 ```
 curl --location --request POST 'http://localhost:8080/api/users/1/purchase/create' \
 --header 'Authorization: Bearer <token>' \
@@ -122,7 +137,7 @@ Content-Type: application/json
   "points": 250
 }
 ```
-#### Exmaple Request
+#### Exmaple Curl Request
 ```
 curl --location --request POST 'http://localhost:8080/api/users/1/purchase/create' \
 --header 'Authorization: Bearer <token>' \
@@ -160,7 +175,7 @@ Content-Type: application/json
 }
 ```
 
-#### Exmaple Request
+#### Exmaple Curl Request
 ```
 curl --location --request POST 'http://localhost:8080/api/users/1/points/claculatePoints' \
 --header 'Authorization: Bearer <token>' \
@@ -191,7 +206,7 @@ Content-Type: application/json
 }
 ```
 
-### Example Requeset
+### Example Curl Requeset
 ```
 curl --location --request GET 'http://localhost:8080/api/users/1/points/getPoints' \
 --header 'Authorization: Bearer <token>' \
@@ -227,7 +242,7 @@ Content-Type: application/json
 ]
 ```
 
-### Example Request
+### Example Curl Request
 ```
 curl --location --request GET 'http://localhost:8080/api/users/1/points/calculateMontlyPoints?startDate=2023-01-01&endDate=2023-07-30' \
 --header 'Authorization: Bearer <token>' \
